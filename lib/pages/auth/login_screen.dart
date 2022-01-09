@@ -142,6 +142,9 @@ class _LoginScreenState extends State<LoginScreen> {
         _emailTextEditingController.text, _passwordTextEditingController.text);
     if (isLogedIn) {
       Helpers.showSnackBar(context: context, message: "Login success");
+      Future.delayed(const Duration(seconds: 3), () {
+        Navigator.pushReplacementNamed(context, '/main_screen');
+      });
     }
   }
 }

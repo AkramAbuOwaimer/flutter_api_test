@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_api_test/storage/student_shared_pref_controller.dart';
 
 class LaunchScreen extends StatefulWidget {
   LaunchScreen({Key? key}) : super(key: key);
@@ -12,7 +13,11 @@ class _LaunchScreenState extends State<LaunchScreen> {
   void initState() {
     super.initState();
     Future.delayed(Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, '/login_screen');
+      if (StudentSharedPrefController().isLoggedIn()) {
+        Navigator.pushReplacementNamed(context, '/main_screen');
+      } else {
+        Navigator.pushReplacementNamed(context, '/login_screen');
+      }
     });
   }
 
