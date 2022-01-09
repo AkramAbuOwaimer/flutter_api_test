@@ -10,8 +10,9 @@ class UsersScreen extends StatefulWidget {
 }
 
 class _UsersScreenState extends State<UsersScreen> {
-  late Future<List<User>> _usersFuture;
   List<User> _users = [];
+  late Future<List<User>> _usersFuture;
+
   @override
   void initState() {
     super.initState();
@@ -24,7 +25,7 @@ class _UsersScreenState extends State<UsersScreen> {
         future: _usersFuture,
         builder: (BuildContext context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           } else {
@@ -35,16 +36,16 @@ class _UsersScreenState extends State<UsersScreen> {
                   itemBuilder: (context, index) {
                     var _user = _users.elementAt(index);
                     return ListTile(
-                      leading: Icon(Icons.person),
+                      leading: const Icon(Icons.person),
                       title: Text('${_user.firstName} ${_user.lastName}'),
                       subtitle: Text(_user.jobTitle),
-                      trailing: Icon(Icons.arrow_forward_ios),
+                      trailing: const Icon(Icons.arrow_forward_ios),
                     );
                   });
             } else {
               return Center(
                 child: Column(
-                  children: [
+                  children: const [
                     Icon(Icons.warning),
                     Text(
                       'No Data',

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_api_test/pages/auth/login_screen.dart';
 import 'package:flutter_api_test/pages/launch_screen.dart';
 import 'package:flutter_api_test/pages/main_screen.dart';
+import 'package:flutter_api_test/storage/student_shared_pref_controller.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await StudentSharedPrefController().initSharedPref();
   runApp(const MainApp());
 }
 
@@ -17,6 +21,9 @@ class MainApp extends StatelessWidget {
       routes: {
         '/launch_screen': (context) => LaunchScreen(),
         '/main_screen': (context) => MainScreen(),
+
+        // * Auth
+        '/login_screen': (context) => LoginScreen(),
       },
     );
   }

@@ -18,6 +18,7 @@ class _MainScreenState extends State<MainScreen> {
         widget: CategoriesScreen(), title: 'Categories'),
     const ButtomNavigationScreen(widget: SettingsScreen(), title: 'Settings')
   ];
+
   int _selectedIndex = 0;
 
   @override
@@ -39,7 +40,7 @@ class _MainScreenState extends State<MainScreen> {
         onTap: (index) => setState(() {
           _selectedIndex = index;
         }),
-        items: [
+        items: const [
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.person,
