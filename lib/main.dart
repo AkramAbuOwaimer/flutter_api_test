@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_api_test/pages/auth/login_screen.dart';
+import 'package:flutter_api_test/pages/auth/password/forgot_password_screen.dart';
+import 'package:flutter_api_test/pages/auth/password/reset_password_screen.dart';
 import 'package:flutter_api_test/pages/launch_screen.dart';
 import 'package:flutter_api_test/pages/main_screen.dart';
 import 'package:flutter_api_test/storage/student_shared_pref_controller.dart';
@@ -24,6 +26,8 @@ class MainApp extends StatelessWidget {
 
         // * Auth
         '/login_screen': (context) => LoginScreen(),
+        '/forget_password_screen': (context) => ForgotPasswordScreen(),
+        // '/reset_password_screen': (context) => ResetPasswordScreen(),
       },
     );
   }
